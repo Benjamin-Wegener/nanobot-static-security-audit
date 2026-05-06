@@ -237,6 +237,9 @@ NanoBot respects user data privacy with no telemetry, analytics, or unauthorized
 
 *Generated: 2026-05-06*
 *Static analysis only — no code execution*
+
+---
+
 ![cover-v5-optimized](./images/GitHub_README.png)
 
 <div align="center">
