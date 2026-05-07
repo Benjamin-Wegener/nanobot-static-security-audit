@@ -117,8 +117,8 @@ No user-configured API keys are sent to external analytics services. The codebas
 
 ---
 
-## Verification Update (2026-05-07)
+## Update (2026-05-07)
 
-- Re-verified against the current repository snapshot.
+- Re-checked against the current repository snapshot.
 - Confirmed no telemetry/analytics SDK integrations were introduced.
 - Corrected classification language to reflect that provider endpoints include defaults that are user-overridable via `api_base` configuration.
