@@ -10,7 +10,7 @@ This static audit analyzed all Python source files in the NanoBot repository to 
 |----------|-------|---------|
 | **HARDCODED endpoints** | ~45 | Provider API endpoints (OpenRouter, HuggingFace, AiHubMix, SiliconFlow, VolcEngine, BytePlus, DeepSeek, Gemini, Zhipu, DashScope, Moonshot, MiniMax, Mistral, StepFun, Xiaomi, LongCat, Groq, Qianfan, GitHub Copilot, OpenAI Codex, Brave, Tavily, Jina, Kagi, DuckDuckGo, DingTalk, Microsoft Teams, Feishu, QQ, Matrix, WeChat) |
 | **LOCALHOST_ONLY** | 3 | Local model servers (Ollama `localhost:11434`, LM Studio `localhost:1234`, OpenVINO `localhost:8000`) |
-| **USER_CONFIGURED** | 0 | No hardcoded external URLs dependent on user config |
+| **USER_CONFIGURED** | Present | Many provider endpoints are defaults and can be overridden via config (`api_base`) |
 | **ANALYTICS/Telemetry** | 0 | No telemetry SDKs or ping endpoints found |
 | **SUSPICIOUS** | 0 | No unexpected outbound calls detected |
 
@@ -20,7 +20,7 @@ All network calls fall into one of three categories:
 
 1. **HARDCODED** — Fixed API endpoints for provider integration (OpenRouter, HuggingFace, etc.)
 2. **LOCALHOST_ONLY** — Local model deployments (Ollama, LM Studio, OpenVINO)
-3. **USER_CONFIGURED** — None found
+3. **USER_CONFIGURED** — Provider API bases are user-configurable, with defaults in provider registry
 
 ### Dependencies Analysis
 
@@ -114,3 +114,11 @@ NanoBot does not contain any telemetry, analytics, or unauthorized network call 
 - Channel-specific APIs (DingTalk, Microsoft Teams, Feishu, WeChat, etc.)
 
 No user-configured API keys are sent to external analytics services. The codebase respects the principle of **user-controlled data flow** — all network calls are gated by user configuration or are necessary for core provider functionality.
+
+---
+
+## Verification Update (2026-05-07)
+
+- Re-verified against the current repository snapshot.
+- Confirmed no telemetry/analytics SDK integrations were introduced.
+- Corrected classification language to reflect that provider endpoints include defaults that are user-overridable via `api_base` configuration.
